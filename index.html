@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+    
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="reset.css"/>
+        <link rel="stylesheet" href="hotorcold.css"/>
+        <title>HOT or COLD</title>
+        <h2>Welcome one and all to the game of <span id="hot"><em>HOT</em></span> or <span id="cold"><em>COLD!</em></span></h2>
+    </head>
+    
+    
+    <body>
+        
+        
+        <div id="game">
+            
+            <div id="indications">
+					Indications are as follows:
+					<br/>
+					<br/>
+					<ul>
+						<li>Brrr Freeeziiing -> +/- 20 of answer</li>
+						<br>
+						<li>Too Cold -> +/- 15 of answer</li>
+						<br>
+						<li>Kinda Warm -> +/- 10 of answer</li>
+						<br>
+						<li>Really Warm -> +/- 7 of answer</li>
+						<br>
+						<li>Hot! Hot! Hot!-> +/- 3 of answer</li>
+						<br>
+						<li>Hooooooooooooot!-> +/- 1 of answer</li>
+						<br>
+					</ul>		            
+            </div>
+            
+            <br/> 
+            
+            <p>
+                Please choose a number between 1 and 100:
+                <input type="number" id="guess"/>
+            </p>
+            <br/>  
+            <button id="check" class="button">Check</button>
+            <!--
+            
+            <input type="button" value="Check" id="check"></input>
+            <a href="" id="check" class="button">Check</a>
+           
+           -->
+            <br/>
+            <br/>
+            <p id="temp">Temp: <span id="indicator"></span></p>
+            
+            
+            <button id="reset" class="button">Reset</button>
+
+            
+            <button id="giveUp" class="button">Give Up</button>
+           
+            <br/>
+            <br/>
+            <p>You've Won: <span id="wins">0</span> times</p>
+        </div>
+        
+        
+        <script src="jquery-2.0.0.min.js"></script>
+        <script src="application.js"></script>
+    </body>
+    
+</html>

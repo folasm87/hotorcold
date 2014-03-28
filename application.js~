@@ -1,0 +1,94 @@
+/*jslint browser: true*/
+/*global $, jQuery*/
+
+$(document).ready(function () {
+    "use strict";
+    
+    
+        
+    
+    var randomNumber = 0,
+        userGuess = 0,
+        gameCount = 0,
+        wins = 0;
+    
+    
+    
+    
+	 var randomize = function (){
+		randomNumber = Math.floor(Math.random() * 101);
+	}
+	
+	var restart = function () {
+	
+		gameCount = 0;
+    	$('#indicator').text("");
+    	$('#guess').val("");
+	
+	}
+	
+	
+
+	$('#reset').on('click', function () {
+		wins = 0;	
+		$('#wins').text(wins);	
+		restart();
+		
+		
+	});
+	
+	    
+    
+    $('#giveUp').on('click', function () {
+    		restart();
+    		alert("The answer is " + randomNumber);
+    });
+   
+    $('#check').on('click', function () {
+        userGuess = +$('#guess').val();
+        
+        
+        if (gameCount === 0){
+        	randomize();
+        	gameCount += 1;
+        }
+        alert("" + userGuess);
+        console.log(randomNumber);  
+   
+   		
+   	 	 if (userGuess > 100 || userGuess < 1) {
+           alert("Please pick a number between 1 and 100");
+		  }else if ((userGuess % 1) > 0) {		  
+		     alert("Please choose a positive integer (1, 2, 3, ...) less than or equal to 100");
+		  }else if (userGuess <= randomNumber - 20 || userGuess >= randomNumber + 20) {
+		  	 $('#indicator').text("Brrr Freeeziiing").show();  
+        } else if (userGuess <= randomNumber - 15 || userGuess >= randomNumber + 15) {
+            $('#indicator').text("Too Cold").show();
+        } else if (userGuess <= randomNumber - 10 || userGuess >= randomNumber + 10) {
+            $('#indicator').text("Kinda Warm").show();
+        } else if (userGuess <= randomNumber - 7 || userGuess >= randomNumber + 7) {
+            $('#indicator').text("Really Warm").show();
+        } else if (userGuess <= randomNumber - 3 || userGuess >= randomNumber + 3) {
+            $('#indicator').text("Hot! Hot! Hot!").show();
+		 } else if (userGuess <= randomNumber - 1 || userGuess >= randomNumber + 1) {
+            $('#indicator').text("Hooooooooooooot!").show();
+             
+       } else if (userGuess === randomNumber) {
+        		$('#indicator').text("Bingo!!!").show();
+        		alert("BANZAI ! You won!!!");
+        		wins += 1;
+        		restart();
+   	 	 }
+   	
+   		$('#wins').text(wins);
+   
+    });
+ 
+    
+    
+  
+	
+	
+
+
+});
